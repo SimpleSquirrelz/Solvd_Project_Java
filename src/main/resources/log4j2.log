@@ -1,0 +1,144 @@
+23:53:36.333 [main] INFO  com.solvd.taxi.transport.CasualCar - Object created: CasualCar { 
+capacity=4',
+, maxSpeed=50.0',
+}
+23:53:36.334 [main] INFO  com.solvd.taxi.transport.CasualCar - Object created: CasualCar { 
+capacity=2',
+, maxSpeed=150.0',
+}
+23:53:36.335 [main] INFO  com.solvd.taxi.transport.CasualCar - Object created: CasualCar { 
+capacity=1',
+, maxSpeed=200.0',
+}
+23:53:36.337 [main] INFO  com.solvd.taxi.transport.PoorCar - Object created: CasualCar {
+capacity=4',
+, maxSpeed=50.0',
+, orders=[]',
+}
+23:53:36.337 [main] INFO  com.solvd.taxi.transport.PoorCar - Object created: CasualCar {
+capacity=2',
+, maxSpeed=150.0',
+, orders=[]',
+}
+23:53:36.337 [main] INFO  com.solvd.taxi.transport.PoorCar - Object created: CasualCar {
+capacity=1',
+, maxSpeed=200.0',
+, orders=[]',
+}
+23:53:36.351 [main] INFO  com.solvd.taxi.bar.Drink - Object created: Drink{name='Vodka', amount=3, price=150.0, degree=34.5, expirationDate=Tue Jan 01 00:00:00 EET 3788}
+23:53:36.351 [main] INFO  com.solvd.taxi.bar.Drink - Object created: Drink{name='Chistiy spirt', amount=99, price=0.0, degree=100.0, expirationDate=Tue Jan 01 00:00:00 EET 3788}
+23:53:36.351 [main] INFO  com.solvd.taxi.bar.Bar - Object created: com.solvd.taxi.bar.Bar@3232a28a
+23:53:36.351 [main] INFO  com.solvd.taxi.transport.LuxCar - Object created: CasualCar {
+capacity=4',
+, maxSpeed=50.0',
+}
+23:53:36.355 [main] INFO  com.solvd.taxi.helpers.Location - Object created: Location {
+country='Ukraine',
+city='Moscow',
+region='Troeshina',
+street='St',
+buildingNumber='29',
+}
+23:53:36.359 [main] INFO  com.solvd.taxi.people.Customer - Object created: Customer {
+location=Location {
+country='Ukraine',
+city='Moscow',
+region='Troeshina',
+street='St',
+buildingNumber='29',
+}
+, phoneNumber='+380631232323',
+, name='Zeri',
+, surname='Loun',
+, birthday='Thu Mar 02 00:00:00 EET 3893',
+, balance='350.0}
+23:53:36.359 [main] INFO  com.solvd.taxi.helpers.Location - Object created: Location {
+country='Ukraine',
+city='Kyiv',
+region='Kyiv',
+street='St',
+buildingNumber='1',
+}
+23:53:36.359 [main] INFO  com.solvd.taxi.people.Customer - Object created: Customer {
+location=Location {
+country='Ukraine',
+city='Kyiv',
+region='Kyiv',
+street='St',
+buildingNumber='1',
+}
+, phoneNumber='+380634444444',
+, name='Levi',
+, surname='Akkerman',
+, birthday='Thu Apr 01 00:00:00 EEST 3660',
+, balance='350.0}
+23:53:36.359 [main] INFO  com.solvd.taxi.helpers.Location - Object created: Location {
+country='Tallin',
+city='Tartu',
+region='Daleko',
+street='Srrrr',
+buildingNumber='99',
+}
+23:53:36.359 [main] INFO  com.solvd.taxi.people.Customer - Object created: Customer {
+location=Location {
+country='Tallin',
+city='Tartu',
+region='Daleko',
+street='Srrrr',
+buildingNumber='99',
+}
+, phoneNumber='+380639999999',
+, name='Zeri',
+, surname='Loun',
+, birthday='Sat Mar 02 00:00:00 EET 3901',
+, balance='350.0}
+23:53:36.360 [main] INFO  com.solvd.taxi.people.Operator - Object created: Operator {
+, customerCalls=[],
+ phoneNumber='+380631232323',
+, name='Nikita',
+, surname='Pushka',
+, birthday=Mon Oct 02 00:00:00 EEST 3893',
+}
+23:53:36.360 [main] INFO  com.solvd.taxi.helpers.Location - Object created: Location {
+country='Ukraine',
+city='Moscow',
+region='Troeshina',
+street='St',
+buildingNumber='29',
+}
+23:53:36.361 [main] INFO  com.solvd.taxi.helpers.DriverLicense - Object created: DriverLicense {
+name='Maximka',
+, surname='Raketa',
+, birthday=Thu Mar 02 00:00:00 EET 3893',
+, issueDate=Sun Mar 02 00:00:00 EET 3913',
+, expirationDate=Mon Mar 02 00:00:00 EET 3953',
+, licenseNumber='AAAA-BBBB-CCCC-DDDD',
+}
+23:53:36.365 [main] INFO  com.solvd.taxi.people.Driver - Object created: Driver {
+location=Location {
+country='Ukraine',
+city='Moscow',
+region='Troeshina',
+street='St',
+buildingNumber='29',
+}',
+, driverLicense=DriverLicense {
+name='Maximka',
+, surname='Raketa',
+, birthday=Thu Mar 02 00:00:00 EET 3893',
+, issueDate=Sun Mar 02 00:00:00 EET 3913',
+, expirationDate=Mon Mar 02 00:00:00 EET 3953',
+, licenseNumber='AAAA-BBBB-CCCC-DDDD',
+}',
+, phoneNumber='+380631232323',
+, name='Maximka',
+, surname='Raketa',
+, birthday=Thu Mar 02 00:00:00 EET 3893',
+, balance='350.0}
+23:53:36.365 [main] INFO  com.solvd.taxi.people.Manager - Object created: Customer {
+, phoneNumber='+38063000000',
+, name='Oleg',
+, surname='JustOleg',
+, birthday='Sat Sep 23 00:00:00 EEST 3893',
+, orders ='[]',
+}
