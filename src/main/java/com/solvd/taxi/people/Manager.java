@@ -35,13 +35,8 @@ public class Manager extends Human {
 
     @Override
     public String toString() {
-        return "Customer {\n" +
-                ", phoneNumber='" + getPhoneNumber() + "',\n" +
-                ", name='" + getName() + "',\n" +
-                ", surname='" + getSurname() + "',\n" +
-                ", birthday='" + getBirthday().toString() + "',\n" +
-                ", orders ='" + orders.toString() + "',\n" +
-                '}';
+        return String.format("\nMANAGER:\n%s %s\nTel: %s\nBirthday: %s\nOrders: %s",
+                getName(), getSurname(), getPhoneNumber(), getBirthday().toString(),orders.toString());
     }
 
     @Override

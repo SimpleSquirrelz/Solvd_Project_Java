@@ -12,20 +12,18 @@ public class CasualCar extends Car {
 
     public CasualCar() {
         super();
-        logger.info("Object created: " + this);
+        logger.info("Casual car created: " + this);
     }
 
     public CasualCar(int capacity, float maxSpeed, List<Customer> passengers) {
         super(capacity, maxSpeed, passengers);
-        logger.info("Object created: " + this);
+        logger.info("Casual car created: " + this);
     }
 
     @Override
     public String toString() {
-        return "CasualCar { \n" +
-                "capacity=" + getCapacity() + "',\n" +
-                ", maxSpeed=" + getMaxSpeed() + "',\n" +
-                '}';
+        return String.format("\nCASUAL Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s",
+                getMaxSpeed(), getMaxSpeed(),getPassengers().toString());
     }
 
     @Override

@@ -15,13 +15,13 @@ public class LuxCar extends Car {
     public LuxCar(){
         super();
         this.bar = new Bar();
-        logger.info("Object created: " + this);
+        logger.info("Lux car created: " + this);
     }
 
     public LuxCar(int capacity, float maxSpeed, List<Customer> passengers, Bar bar) {
         super(capacity, maxSpeed, passengers);
         this.bar = bar;
-        logger.info("Object created: " + this);
+        logger.info("Lux car created: " + this);
     }
 
     public Bar getBar() {
@@ -34,10 +34,8 @@ public class LuxCar extends Car {
 
     @Override
     public String toString() {
-        return "CasualCar {\n" +
-                "capacity=" + getCapacity() + "',\n" +
-                ", maxSpeed=" + getMaxSpeed() + "',\n" +
-                '}';
+        return String.format("\nLUX Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s\nBar: %s",
+                getMaxSpeed(), getMaxSpeed(),getPassengers().toString(), bar.toString());
     }
 
     @Override

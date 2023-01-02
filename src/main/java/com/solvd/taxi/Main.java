@@ -53,14 +53,14 @@ public class Main {
                     String phone = in.nextLine();
                     customer = customers.stream().filter(el -> el.getPhoneNumber().equals(phone)).findFirst().orElse(null);
                     if(customer != null) {
-                        System.out.println("Congratulations, you authorized as" + customer.toString());
+                        System.out.println("Congratulations, you authorized as" + customer);
                         orderMenu();
                     }
                     else
                         System.out.println("No user with such phone number exist in the system");
                     break;
                 default:
-                    System.out.println("There is no such command in the list");
+                    logger.error("Main menu. There is no such command in the list");
                     break;
             }
         }

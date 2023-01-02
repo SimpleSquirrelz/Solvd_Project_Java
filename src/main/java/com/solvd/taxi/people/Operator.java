@@ -4,43 +4,44 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class Operator extends Human {
-    private Queue<Customer> customerCalls;
+    private PriorityQueue<Customer> customerCalls;
     private final Logger logger = LogManager.getLogger(Operator.class);
 
     public Operator() {
         super();
-        customerCalls = new LinkedList<>();
+        customerCalls = new PriorityQueue<>();
+        logger.info("Operator created: " + this);
     }
 
     public Operator(String phoneNumber, String name, String surname, Date birthday, Queue<Customer> customerCalls) {
         super(phoneNumber, name, surname, birthday);
-        this.customerCalls = new LinkedList<>(customerCalls);
-        logger.info("Object created: " + this);
+        this.customerCalls = new PriorityQueue<>(customerCalls);
+        logger.info("Operator created: " + this);
 
     }
 
     public Queue<Customer> getCustomerCalls() {
-        return new LinkedList<>(customerCalls);
+        return new PriorityQueue<>(customerCalls);
     }
 
     public void setCustomerCalls(Queue<Customer> customerCalls) {
-        this.customerCalls = new LinkedList<>(customerCalls);
+        this.customerCalls = new PriorityQueue<>(customerCalls);
+    }
+
+    public void addCustomerCalls(Queue<Customer> customerCalls) {
+        this.customerCalls.addAll(customerCalls);
     }
 
     @Override
     public String toString() {
-        return "Operator {\n" +
-                ", customerCalls=[" + customerCalls.stream().map(el -> el.getName() + " " + el.getSurname() + " " + el.getPhoneNumber()).collect(Collectors.joining(" | ")) +
-                "],\n phoneNumber='" + getPhoneNumber() + "',\n" +
-                ", name='" + getName() + "',\n" +
-                ", surname='" + getSurname() + "',\n" +
-                ", birthday=" + getBirthday() + "',\n" +
-                '}';
+        return String.format("\nOPERATOR:\n%s %s\nTel: %s\nBirthday: %s\nCustomer calls: %s",
+                getName(), getSurname(), getPhoneNumber(), getBirthday().toString(),
+                customerCalls.stream().map(el -> el.getName() + " " + el.getSurname() + " " + el.getPhoneNumber()).collect(Collectors.joining(" | ")));
     }
 
     @Override

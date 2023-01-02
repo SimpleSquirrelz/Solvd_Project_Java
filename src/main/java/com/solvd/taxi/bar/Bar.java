@@ -14,12 +14,12 @@ public class Bar implements IStorable {
 
     public Bar(){
         this.drinks = new HashMap<>();
-        logger.info("Object created: " + this);
+        logger.info("Bar created: " + this);
     }
 
     public Bar(Map<String, Drink> drinks) {
         this.drinks = new HashMap<>(drinks);
-        logger.info("Object created: " + this);
+        logger.info("Bar created: " + this);
     }
 
     public Map<String, Drink> getDrinks() {
@@ -30,6 +30,10 @@ public class Bar implements IStorable {
         this.drinks = new HashMap<>(drinks);
     }
 
+    @Override
+    public String toString() {
+        return String.format("\nBar drinks: %s", drinks.toString());
+    }
 
     @Override
     public void pickUp(List<Object> objects) {

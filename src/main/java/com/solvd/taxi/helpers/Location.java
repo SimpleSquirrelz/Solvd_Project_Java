@@ -18,7 +18,7 @@ public class Location {
         this.region = "NoRegion";
         this.street = "NoStreet";
         this.buildingNumber = "0-A";
-        logger.info("Object created: " + this);
+        logger.info("Location created: " + this);
     }
 
     public Location(String country, String city, String region, String street, String buildingNumber) {
@@ -27,7 +27,7 @@ public class Location {
         this.region = region;
         this.street = street;
         this.buildingNumber = buildingNumber;
-        logger.info("Object created: " + this);
+        logger.info("Location created: " + this);
     }
 
     public String getCountry() {
@@ -35,6 +35,8 @@ public class Location {
     }
 
     public void setCountry(String country) {
+        logger.info("Location country changed in" + this +
+                "\nTo: " + country);
         this.country = country;
     }
 
@@ -43,6 +45,8 @@ public class Location {
     }
 
     public void setCity(String city) {
+        logger.info("Location city changed in" + this +
+                "\nTo: " + city);
         this.city = city;
     }
 
@@ -51,6 +55,8 @@ public class Location {
     }
 
     public void setRegion(String region) {
+        logger.info("Location region changed in" + this +
+                "\nTo: " + region);
         this.region = region;
     }
 
@@ -59,6 +65,8 @@ public class Location {
     }
 
     public void setStreet(String street) {
+        logger.info("Location street changed in" + this +
+                "\nTo: " + street);
         this.street = street;
     }
 
@@ -67,18 +75,21 @@ public class Location {
     }
 
     public void setBuildingNumber(String buildingNumber) {
+        logger.info("Location building number changed in" + this +
+                "\nTo: " + buildingNumber);
         this.buildingNumber = buildingNumber;
+    }
+
+    public void setLocation(Location location) {
+        this.country = location.getCountry();
+        this.city = location.getCity();
+        this.street = location.getStreet();
+        this.buildingNumber = location.getBuildingNumber();
     }
 
     @Override
     public String toString() {
-        return "Location {\n" +
-                "country='" + country + "',\n" +
-                "city='" + city + "',\n" +
-                "region='" + region + "',\n" +
-                "street='" + street + "',\n" +
-                "buildingNumber='" + buildingNumber + "',\n" +
-                '}';
+        return String.format("%s, %s, %s, %s, %s", country, city, region, street, buildingNumber);
     }
 
     @Override

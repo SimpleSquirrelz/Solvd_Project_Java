@@ -26,7 +26,7 @@ public class Order {
         this.destination = new Location();
         this.pickup = this.customer.getLocation();
         this.price = 0.0f;
-        logger.info("Object created: " + this);
+        logger.info("Order created: " + this);
         amount++;
     }
 
@@ -37,7 +37,7 @@ public class Order {
         this.destination = destination;
         this.pickup = this.customer.getLocation();
         this.price = price;
-        logger.info("Object created: " + this);
+        logger.info("Order created: " + this);
         amount++;
     }
 
@@ -48,7 +48,7 @@ public class Order {
         this.pickup = pickup;
         this.destination = destination;
         this.price = price;
-        logger.info("Object created: " + this);
+        logger.info("Order created: " + this);
         amount++;
     }
 
@@ -114,14 +114,8 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "customer=" + customer.toString() + "',\n" +
-                ", driver=" + driver.toString() + "',\n" +
-                ", operator=" + operator.toString() + "',\n" +
-                ", pickup=" + pickup.toString() + "',\n" +
-                ", destination=" + destination.toString() + "',\n" +
-                ", price=" + price + "',\n" +
-                '}';
+        return String.format("\nORDER:\nCustomer: %s\nDriver: %s\nOperator: %s\nPickup location: %s\nDestination: %s\nPrice: %f",
+                customer.toString(), driver.toString(), operator.toString(), pickup.toString(), destination.toString(), price);
     }
 
     @Override

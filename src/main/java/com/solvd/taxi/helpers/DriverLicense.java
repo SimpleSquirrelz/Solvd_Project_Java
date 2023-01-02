@@ -60,14 +60,8 @@ public final class DriverLicense {
 
     @Override
     public String toString() {
-        return "DriverLicense {\n" +
-                "name='" + name + "',\n" +
-                ", surname='" + surname + "',\n" +
-                ", birthday=" + birthday.toString() + "',\n" +
-                ", issueDate=" + issueDate.toString() + "',\n" +
-                ", expirationDate=" + expirationDate.toString() + "',\n" +
-                ", licenseNumber='" + licenseNumber + "',\n" +
-                '}';
+        return String.format("%s %s\n#%s\nBirthday: %s\nIssued: %s\nExpiration: %s",
+                name, surname, licenseNumber, birthday.toString(), issueDate.toString(), expirationDate.toString());
     }
 
     @Override

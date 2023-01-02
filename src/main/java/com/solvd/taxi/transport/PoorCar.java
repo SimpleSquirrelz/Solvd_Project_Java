@@ -15,22 +15,19 @@ public class PoorCar extends Car {
     public PoorCar() {
         super();
         this.orders = new ArrayList<>();
-        logger.info("Object created: " + this);
+        logger.info("Poor car created: " + this);
     }
 
     public PoorCar(int capacity, float maxSpeed, List<Customer> passengers, List<Order> orders) {
         super(capacity, maxSpeed, passengers);
         this.orders = orders;
-        logger.info("Object created: " + this);
+        logger.info("Poor car created: " + this);
     }
 
     @Override
     public String toString() {
-        return "CasualCar {\n" +
-                "capacity=" + getCapacity() + "',\n" +
-                ", maxSpeed=" + getMaxSpeed() + "',\n" +
-                ", orders=" + orders.toString() + "',\n" +
-                '}';
+        return String.format("\nLUX Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s\nOrders: %s",
+                getMaxSpeed(), getMaxSpeed(),getPassengers().toString(), orders.toString());
     }
 
     @Override

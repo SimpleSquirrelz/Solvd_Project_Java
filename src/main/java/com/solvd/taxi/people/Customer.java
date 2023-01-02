@@ -32,6 +32,8 @@ public class Customer extends Human implements ISolvent {
     }
 
     public void setLocation(Location location) {
+        logger.info("Customer location changed in" + this +
+                "\nTo: " + location);
         this.location = location;
     }
 
@@ -40,6 +42,8 @@ public class Customer extends Human implements ISolvent {
     }
 
     public void setBalance(float balance) {
+        logger.info("Customer balance changed in" + this +
+                "\nTo: " + balance);
         this.balance = balance;
     }
     @Override
@@ -63,14 +67,8 @@ public class Customer extends Human implements ISolvent {
 
     @Override
     public String toString() {
-        return "Customer {\n" +
-                "location=" + location.toString() + "\n" +
-                ", phoneNumber='" + getPhoneNumber() + "',\n" +
-                ", name='" + getName() + "',\n" +
-                ", surname='" + getSurname() + "',\n" +
-                ", birthday='" + getBirthday().toString() + "',\n" +
-                ", balance='" + balance +
-                '}';
+        return String.format("\nCUSTOMER:\n%s %s\nTel: %s\nBirthday: %s\nBalance: %s\nLocation: %s",
+                getName(), getSurname(), getPhoneNumber(), getBirthday().toString(), getBalance(), getLocation().toString());
     }
 
     @Override

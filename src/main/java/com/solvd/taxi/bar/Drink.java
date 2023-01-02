@@ -20,7 +20,7 @@ public final class Drink {
         this.price = 0.0f;
         this.degree = 0.0f;
         this.expirationDate = new Date(1900, Calendar.JANUARY, 1);
-        logger.info("Object created: " + this);
+        logger.info("Drink created: " + this);
     }
 
     public Drink(String name, int amount, float price, float degree, Date expirationDate) {
@@ -29,7 +29,7 @@ public final class Drink {
         this.price = price;
         this.degree = degree;
         this.expirationDate = expirationDate;
-        logger.info("Object created: " + this);
+        logger.info("Drink created: " + this);
     }
 
     public String getName() {
@@ -74,13 +74,8 @@ public final class Drink {
 
     @Override
     public String toString() {
-        return "Drink{" +
-                "name='" + name + '\'' +
-                ", amount=" + amount +
-                ", price=" + price +
-                ", degree=" + degree +
-                ", expirationDate=" + expirationDate +
-                '}';
+        return String.format("\n%s vol:%f\n%d per %f$\nExpiration: %s",
+                name, degree, amount, price, expirationDate.toString());
     }
 
     @Override

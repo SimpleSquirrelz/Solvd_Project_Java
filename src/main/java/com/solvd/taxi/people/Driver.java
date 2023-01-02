@@ -42,6 +42,8 @@ public class Driver extends Human implements ISolvent {
     }
 
     public void setLocation(Location location) {
+        logger.info("Driver location changed in" + this +
+                "\nTo: " + location);
         this.location = location;
     }
 
@@ -50,6 +52,8 @@ public class Driver extends Human implements ISolvent {
     }
 
     public void setDriverLicense(DriverLicense driverLicense) {
+        logger.info("Driver driver license changed in" + this +
+                "\nTo: " + driverLicense);
         this.driverLicense = driverLicense;
     }
 
@@ -58,6 +62,8 @@ public class Driver extends Human implements ISolvent {
     }
 
     public void setBalance(float balance) {
+        logger.info("Driver balance changed in" + this +
+                "\nTo: " + balance);
         this.balance = balance;
     }
 
@@ -83,15 +89,8 @@ public class Driver extends Human implements ISolvent {
 
     @Override
     public String toString() {
-        return "Driver {\n" +
-                "location=" + location.toString() + "',\n" +
-                ", driverLicense=" + driverLicense.toString() + "',\n" +
-                ", phoneNumber='" + getPhoneNumber() + "',\n" +
-                ", name='" + getName() + "',\n" +
-                ", surname='" + getSurname() + "',\n" +
-                ", birthday=" + getBirthday().toString() + "',\n" +
-                ", balance='" + balance +
-                '}';
+        return String.format("\nDRIVER:\n%s %s\nTel: %s\nBirthday: %s\nBalance: %s\nLocation: %s\nDriver license: \n%s",
+                getName(), getSurname(), getPhoneNumber(), getBirthday().toString(), getBalance(), getLocation().toString(), getDriverLicense().toString());
     }
 
     @Override
