@@ -81,14 +81,8 @@ public abstract class Car implements IDrivable, IStorable {
             logger.error("Empty input value error!");
             throw new EmptyInputException();
         }
-//        } else if (!(objects.get(0) instanceof Customer)) {
-//            logger.error("Unsuitable object in list was found!");
-//            throw new UnsuitableDataTypeException();
-//        } else {
-//            this.getPassengers().addAll(objects.stream().map(obj -> ((Customer) obj)).toList());
-//        }
     }
-    public final void pickUp(Customer customer) throws CapacityOverflowException, UnsuitableDataTypeException, EmptyInputException {
+    public final void pickUp(Customer customer) throws CapacityOverflowException {
         if (this.getCapacity() < this.getPassengers().size() + 1) {
             logger.error("Capacity overflow!");
             throw new CapacityOverflowException();

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class LocationMenu {
     private static Scanner in = new Scanner(System.in);
 
-    public static Location specifyDestinationLocation(Customer customer) {
+    public static Location specifyPickupLocation(Customer customer) {
         while(true) {
             System.out.println("Would you like to use your current location?");
             System.out.println("0 - exit\n1 - Yes\n2 - No");
@@ -37,5 +37,24 @@ public class LocationMenu {
                     System.out.println("There is no such option");
             }
         }
+    }
+
+    public static Location specifyDestinationLocation() {
+        System.out.println("Enter country");
+        String country = in.nextLine();
+
+        System.out.println("Enter city");
+        String city = in.nextLine();
+
+        System.out.println("Enter region");
+        String region = in.nextLine();
+
+        System.out.println("Enter street");
+        String street = in.nextLine();
+
+        System.out.println("Enter buildingNumber");
+        String buildingNumber = in.nextLine();
+
+        return new Location(country, city, region, street, buildingNumber);
     }
 }

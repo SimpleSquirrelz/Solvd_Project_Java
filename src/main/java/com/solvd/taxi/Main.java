@@ -1,7 +1,7 @@
 package com.solvd.taxi;
 
-import com.solvd.taxi.exceptions.InsufficientBalanceException;
-import com.solvd.taxi.exceptions.NoAvailableDriverException;
+import com.solvd.taxi.enums.OrderStatus;
+import com.solvd.taxi.exceptions.*;
 import com.solvd.taxi.helpers.Location;
 import com.solvd.taxi.people.Customer;
 
@@ -96,8 +96,16 @@ public class Main {
                     operator.addCustomerCalls(customer);
 
                     order = createOrder();
-                    if(order != null)
-                        sss();
+                    if(order != null) {
+                        car.setDriver(order.getDriver());
+                        try {
+                            car.pickUp(customer);
+                        } catch (CapacityOverflowException e) {
+                            logger.error(e.getMessage());
+                        }
+                        trip();
+                        stop = true;
+                    }
                     break;
                 case "99":
                     stop = true;
@@ -124,62 +132,56 @@ public class Main {
             return null;
         }
 
-        Location location = LocationMenu.specifyDestinationLocation(customer);
-        float price = Operator.countPrice(customer.getLocation(), location, car.getCarClass());
-
-
+        Location destinationLocation = LocationMenu.specifyDestinationLocation();
+        Location pickupLocation = LocationMenu.specifyPickupLocation(customer);
+        float price = Operator.countPrice(pickupLocation, destinationLocation, car.getCarClass());
 
         return new Order(customer,
                 driver,
                 operator,
-                location,
+                pickupLocation,
+                destinationLocation,
                 price);
     }
 
+    public static void trip() {
+        System.out.println("You are in the car moving to your destination!!");
 
-    public static void sss(){
-        while (true) {
-            System.out.println("0 - exit\n" +
-                    "1 - Create an order\n" +
-                    "2 - Get in the car\n" +
-                    "3 - Check for drinks\n" +
-                    "4 - Drink\n" +
-                    "5 - Pay for taxi\n" +
-                    "6 - Leave the car\n" +
-                    "7 - Leave a feedback\n");
-            String input = in.nextLine();
-            switch (input) {
-                case "0":
-                    System.exit(0);
-                    break;
+        boolean stop = false;
+        while(!stop) {
+            System.out.println("0 - exit\n1 - Pay\n2 - Finish trip\n3 - I CANT PAY????");
+            String option = in.nextLine();
+            switch (option) {
+                case "0": System.exit(0);
                 case "1":
-
-                    break;
-                case "2":
-
-                    break;
-                case "3":
-
-                    break;
-                case "4":
-
-                    break;
-                case "5":
                     try {
-                        customer.pay(drivers.get(0), 10);
+                        if(order.getOrderStatus() == OrderStatus.PAID)
+                            logger.error("YOU HAVE ALREADY PAID!! But we will take these money, thank you!");
+
+                        customer.pay(driver, order.getPrice());
+                        order.setOrderStatus(OrderStatus.PAID);
                     } catch (InsufficientBalanceException e) {
-                        logger.error("Not enough money!!");
+                        logger.error("NOT ENOUGH MONEY!!");
                     }
                     break;
-                case "6":
-
+                case "2":
+                    System.out.println("You arrived to the destination!!");
+                    if(order.getOrderStatus() == OrderStatus.PAID) {
+                        car.drive(order.getDestination());
+                        order.setOrderStatus(OrderStatus.COMPLETED);
+                        stop = true;
+                    }
+                    else
+                        logger.error("Order is not paid. You cannot move!!");
                     break;
-                case "7":
-
+                case "3":
+                    System.out.println("You have lost this game");
+                    System.out.println("WASTED");
+                    System.out.println("User has been banned...");
+                    System.exit(503);
                     break;
                 default:
-                    System.out.println("There is no such command in the list");
-                    break;
+                    System.out.println("There is no such option");
             }
         }
     }
