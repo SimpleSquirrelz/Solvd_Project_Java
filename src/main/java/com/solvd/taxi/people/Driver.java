@@ -1,5 +1,6 @@
 package com.solvd.taxi.people;
 
+import com.solvd.taxi.enums.DriverStatus;
 import com.solvd.taxi.exceptions.InsufficientBalanceException;
 import com.solvd.taxi.helpers.DriverLicense;
 import com.solvd.taxi.helpers.Location;
@@ -13,6 +14,7 @@ public class Driver extends Human implements ISolvent {
     private Location location;
     private DriverLicense driverLicense;
     private float balance;
+    private DriverStatus status;
     private final Logger logger = LogManager.getLogger(Driver.class);
 
     public Driver() {
@@ -20,6 +22,7 @@ public class Driver extends Human implements ISolvent {
         this.location = new Location();
         this.driverLicense = new DriverLicense();
         this.balance = 0.0f;
+        this.status = DriverStatus.UNAVAILABLE;
         logger.info("Object created: " + this);
     }
 
@@ -29,11 +32,13 @@ public class Driver extends Human implements ISolvent {
                   Date birthday,
                   float balance,
                   Location location,
-                  DriverLicense driverLicense) {
+                  DriverLicense driverLicense,
+                  DriverStatus status) {
         super(phoneNumber, name, surname, birthday);
         this.balance = balance;
         this.location = location;
         this.driverLicense = driverLicense;
+        this.status = status;
         logger.info("Object created: " + this);
     }
 
@@ -65,6 +70,14 @@ public class Driver extends Human implements ISolvent {
         logger.info("Driver balance changed in" + this +
                 "\nTo: " + balance);
         this.balance = balance;
+    }
+
+    public DriverStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(DriverStatus status) {
+        this.status = status;
     }
 
     @Override

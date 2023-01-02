@@ -1,26 +1,29 @@
 package com.solvd.taxi.people;
 
+import com.solvd.taxi.enums.CarClass;
+import com.solvd.taxi.helpers.Location;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Date;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Operator extends Human {
-    private PriorityQueue<Customer> customerCalls;
+    private Queue<Customer> customerCalls;
+
+    private static final int MAX_PRICE = 500;
+    private static final int MIN_PRICE = 20;
     private final Logger logger = LogManager.getLogger(Operator.class);
 
     public Operator() {
         super();
-        customerCalls = new PriorityQueue<>();
+        customerCalls = new LinkedList<>();
         logger.info("Operator created: " + this);
     }
 
     public Operator(String phoneNumber, String name, String surname, Date birthday, Queue<Customer> customerCalls) {
         super(phoneNumber, name, surname, birthday);
-        this.customerCalls = new PriorityQueue<>(customerCalls);
+        this.customerCalls = new LinkedList<>(customerCalls);
         logger.info("Operator created: " + this);
 
     }
@@ -30,11 +33,15 @@ public class Operator extends Human {
     }
 
     public void setCustomerCalls(Queue<Customer> customerCalls) {
-        this.customerCalls = new PriorityQueue<>(customerCalls);
+        this.customerCalls = new LinkedList<>(customerCalls);
     }
 
     public void addCustomerCalls(Queue<Customer> customerCalls) {
         this.customerCalls.addAll(customerCalls);
+    }
+
+    public void addCustomerCalls(Customer customerCall) {
+        this.customerCalls.add(customerCall);
     }
 
     @Override
@@ -67,5 +74,14 @@ public class Operator extends Human {
         result = prime * result + customerCalls.hashCode();
 
         return result;
+    }
+
+    public static float countPrice(Location locationFrom, Location locationTo, CarClass carClass) {
+        int locationFromNum = Arrays.stream(locationFrom.toString().replace(", ", "").split("")).mapToInt(el -> el.charAt(0)).sum();
+        int locationToNum = Arrays.stream(locationTo.toString().replace(", ", "").split("")).mapToInt(el -> el.charAt(0)).sum();
+
+        Random random = new Random(Math.abs(locationToNum - locationFromNum));
+
+        return (random.nextInt(MAX_PRICE) + MIN_PRICE) + (carClass.getValue());
     }
 }

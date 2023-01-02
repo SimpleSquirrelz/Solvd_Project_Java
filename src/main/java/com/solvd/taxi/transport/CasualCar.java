@@ -23,7 +23,7 @@ public class CasualCar extends Car {
     @Override
     public String toString() {
         return String.format("\nCASUAL Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s",
-                getMaxSpeed(), getMaxSpeed(),getPassengers().toString());
+                getMaxSpeed(), getCapacity(),getPassengers().toString());
     }
 
     @Override

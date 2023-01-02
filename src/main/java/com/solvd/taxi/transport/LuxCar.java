@@ -35,7 +35,7 @@ public class LuxCar extends Car {
     @Override
     public String toString() {
         return String.format("\nLUX Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s\nBar: %s",
-                getMaxSpeed(), getMaxSpeed(),getPassengers().toString(), bar.toString());
+                getMaxSpeed(), getCapacity(),getPassengers().toString(), bar.toString());
     }
 
     @Override

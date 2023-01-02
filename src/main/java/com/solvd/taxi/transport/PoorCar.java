@@ -26,8 +26,8 @@ public class PoorCar extends Car {
 
     @Override
     public String toString() {
-        return String.format("\nLUX Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s\nOrders: %s",
-                getMaxSpeed(), getMaxSpeed(),getPassengers().toString(), orders.toString());
+        return String.format("\nPOOR Car:\nMax speed: %s\nCapacity: %s\nPassengers: %s\nOrders: %s",
+                getMaxSpeed(), getCapacity(),getPassengers().toString(), orders.toString());
     }
 
     @Override

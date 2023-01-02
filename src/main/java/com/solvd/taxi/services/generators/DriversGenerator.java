@@ -1,5 +1,6 @@
 package com.solvd.taxi.services.generators;
 
+import com.solvd.taxi.enums.DriverStatus;
 import com.solvd.taxi.helpers.DriverLicense;
 import com.solvd.taxi.helpers.Location;
 import com.solvd.taxi.people.Customer;
@@ -25,7 +26,19 @@ public class DriversGenerator {
                         new Date(1993, Calendar.MARCH, 2),
                         new Date(2013, Calendar.MARCH, 2),
                         new Date(2053, Calendar.MARCH, 2),
-                        "AAAA-BBBB-CCCC-DDDD"))
+                        "AAAA-BBBB-CCCC-DDDD"), DriverStatus.UNAVAILABLE),
+                new Driver("+380632342332",
+                        "Antoshka",
+                        "Pulya",
+                        new Date(1993, Calendar.MARCH, 2),
+                        350,
+                        new Location("Ukraine", "Moscow", "Obolon", "Superstreet", "2/a"),
+                        new DriverLicense("Antoshka",
+                                "Pulya",
+                                new Date(1997, Calendar.MARCH, 27),
+                                new Date(2017, Calendar.MARCH, 27),
+                                new Date(2057, Calendar.MARCH, 27),
+                                "1234-BBBB-2345-DDDD"), DriverStatus.AVAILABLE)
         );
     }
 }
